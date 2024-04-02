@@ -36,7 +36,7 @@
 						<tbody>
 	 @foreach($subcategory as $item)
 	 <tr>
-		<td> {{ $item['category']['category_name_en'] }} </td>
+		<td> {{ $item['category']['category_name_en'] ?? '' }} </td>
 		<td>{{ $item->subcategory_name_eng }}</td>
 		<td>{{ $item->subcategory_name_ro }}</td>
 		<td >
