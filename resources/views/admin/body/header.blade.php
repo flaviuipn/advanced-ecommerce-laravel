@@ -104,11 +104,6 @@
 		@php
 			$adminData = DB::table('admins')->first(); //iau id din tabelul meu admins pentru a putea folosi conditia de mai jos din src
 		@endphp
-
-
-
-
-
 	      <!-- User Account-->
           <li class="dropdown user user-menu">	
 			<a href="#" class="waves-effect waves-light rounded dropdown-toggle p-0" data-toggle="dropdown" title="User">

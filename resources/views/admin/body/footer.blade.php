@@ -7,5 +7,5 @@
 		  </li>
 		</ul>
     </div>
-	  &copy; 2023 <a href="">Flaviu Iepan</a>. All Rights Reserved.
-  </footer>
+	  &copy; 2024 <a href="">Flaviu Iepan</a>. All Rights Reserved.
+</footer>
