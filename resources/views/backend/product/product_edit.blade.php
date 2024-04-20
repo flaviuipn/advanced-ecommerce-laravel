@@ -144,7 +144,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <h5>Product size <span class="text-danger">:</span></h5>
                                                 <div class="controls">
@@ -246,7 +246,7 @@
                                                     </fieldset>
                                                     <fieldset>
                                                         <input type="checkbox" id="checkbox_5" name="hot_deals" value="1" {{ $products->hot_deals == 1 ? 'checked' : '' }}>
-                                                        <label for="checkbox5">Hot deals?</label>
+                                                        <label for="checkbox_5">Hot deals?</label>
                                                     </fieldset>
                                                 </div>
                                             </div>

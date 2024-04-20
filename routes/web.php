@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\CheckoutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\AdminProfileController;
@@ -8,6 +9,11 @@ use App\Models\User;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\frontend\LanguageController;
+use App\Http\Controllers\frontend\CartController;
+use App\Http\Controllers\User\CartPageController;
+use App\Http\Controllers\User\StripeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -93,4 +99,28 @@ use App\Http\Controllers\backend\ProductController;
             
         
         });
+});
+
+//Limbi routes:
+    Route::get('language/ro', [LanguageController::class, 'Ro'])->name('ro.language');
+    Route::get('language/eng', [LanguageController::class, 'Eng'])->name('eng.language');
+
+//frontend routes:
+    Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
+//cart routes
+    Route::post('/cart/data/store/{id}', [CartController::class, 'CartStore'])->name('cart.store');
+//minicart routes
+    Route::get('/minicart/data/store', [CartController::class, 'MiniCartStore']);
+    Route::get('/minicart/remove/{rowId}', [CartController::class, 'MiniCartRemove']);
+
+//user trebuie sa fie logat pentru a vedea cart:
+Route::group(['prefix'=>'user','middleware' => ['user','auth'],'namespace'=>'User'],function(){    
+//cart page routes
+    Route::get('/mycart', [CartPageController::class, 'MyCart'])->name('mycart');
+    Route::get('/get-cart-product', [CartPageController::class, 'GetCartProduct']);
+    Route::get('/cart-remove/{rowId}', [CartPageController::class, 'RemoveCartProduct']);
+    //checkout
+    Route::get('/checkout', [CartController::class, 'Checkout'])->name('checkout');
+    Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
+    Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
 });

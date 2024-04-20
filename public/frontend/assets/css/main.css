@@ -2757,11 +2757,11 @@ age-container #owl-main .owl-next {
 .product .cart .action ul li.add-cart-button .btn.btn-primary.icon {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
-  background: #fdd922 ;
+  background: #d9534f;
 }
 .product .cart .action ul li.lnk {
   margin: 10px 0px;
-      background: #0f6cb2;
+      background: #000000;
     margin: 0px;
     padding: 8px 2px;
 	border-left:1px solid hsla(0,0%,100%,.2);
@@ -2773,7 +2773,7 @@ age-container #owl-main .owl-next {
   padding: 8px 10px;
 }
 .product .cart .action ul li.lnk.wishlist {
-	background:#0f6cb2;
+	background:#000000;
 	margin:0px;
 	border-radius:0px
 	
@@ -2801,10 +2801,12 @@ age-container #owl-main .owl-next {
   z-index: 100;
 }
 .tag.new {
-  background: #46aad7;
+  background: #000000;
+  color:#ff7878;
 }
 .tag.hot {
   background: #ff7878;
+  color:#000000;
 }
 .product:hover .cart {
   opacity: 1;

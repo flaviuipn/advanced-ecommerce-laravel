@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\MultiImg;
+use App\Models\Product;
 use Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -11,7 +14,12 @@ use Auth;
 class IndexController extends Controller
 {
     public function index(){
-        return view('frontend.index');
+        $categories = Category::orderBy('category_name_en', 'ASC')->get();
+        $products =Product::where('status', 1)->orderBy('id', 'DESC')->get();
+        $featured =Product::where('featured', 1)->orderBy('id', 'DESC')->get();
+        $hot_deals =Product::where('hot_deals', 1)->orderBy('id', 'DESC')->get();
+        
+        return view('frontend.index', compact('categories', 'products', 'featured', 'hot_deals'));
     }
 
     public function UserLogout(){
@@ -68,5 +76,16 @@ class IndexController extends Controller
         else{
             return redirect()->back();
         }
+    }
+
+    public function ProductDetails($id, $slug){
+            $product = Product::findOrFail($id);
+            $multiImg = MultiImg::where('product_id', $id)->get();
+            $size = $product->product_size_en;
+            $product_size_en=explode(',', $size);
+
+            $color_en = $product->product_color_en;
+            $color_ro = $product->product_color_ro;
+            return view('frontend.product.product_details', compact('product', 'multiImg', 'size', 'color_en', 'color_ro', 'product_size_en'));
     }
 }
