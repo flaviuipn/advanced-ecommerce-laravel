@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\MultiImg;
 use App\Models\Product;
+use App\Models\SubCategory;
+use App\Models\SubSubCategory;
 use Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -18,8 +20,10 @@ class IndexController extends Controller
         $products =Product::where('status', 1)->orderBy('id', 'DESC')->get();
         $featured =Product::where('featured', 1)->orderBy('id', 'DESC')->get();
         $hot_deals =Product::where('hot_deals', 1)->orderBy('id', 'DESC')->get();
-        
-        return view('frontend.index', compact('categories', 'products', 'featured', 'hot_deals'));
+        $prd1 = Product::orderBy('id', 'DESC')->get();
+        $prd2 = Product::orderBy('id', 'DESC')->get();
+        $prd3 = Product::orderBy('id', 'DESC')->get();
+        return view('frontend.index', compact('categories', 'products', 'featured', 'hot_deals', 'prd1', 'prd2', 'prd3'));
     }
 
     public function UserLogout(){

@@ -30,20 +30,6 @@
                 </a>
             </li>  
 			
-            <!-- Application -->
-            <li class="treeview">
-                <a href="#">
-                    <i data-feather="message-circle"></i>
-                    <span>Application</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-right pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="chat.html"><i class="ti-more"></i>Chat</a></li>
-                    <li><a href="calendar.html"><i class="ti-more"></i>Calendar</a></li>
-                </ul>
-            </li> 
 			
             <!-- Site Categories -->
             <li class="treeview {{ ($prefix == '/category') ? 'active' : '' }}">
@@ -75,49 +61,8 @@
                 </ul>
             </li> 	
             
-            <!-- User Interface -->
-            <li class="header nav-small-cap">User Interface</li>
-			
-            <!-- Components -->
-            <li class="treeview">
-                <a href="#">
-                    <i data-feather="grid"></i>
-                    <span>Components</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-right pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="components_alerts.html"><i class="ti-more"></i>Alerts</a></li>
-                    <!-- Other components -->
-                </ul>
-            </li>
-			
-            <!-- Cards -->
-            <li class="treeview">
-                <a href="#">
-                    <i data-feather="credit-card"></i>
-                    <span>Cards</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-right pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="card_advanced.html"><i class="ti-more"></i>Advanced Cards</a></li>
-                    <!-- Other card types -->
-                </ul>
-            </li>  
-
+           
         </ul>
     </section>
-	
-    <!-- Sidebar Footer -->
-    <div class="sidebar-footer">
-        <!-- Settings -->
-        <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
-        <!-- Email -->
-        <a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a>
-        <!-- Logout -->
-        <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
-    </div>
+
 </aside>

@@ -92,7 +92,7 @@ Stripe Payment Page
 	<div class="panel-group">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-		    	<h4 class="unicase-checkout-title">Select Payment Method</h4>
+		    	<h4 class="unicase-checkout-title">@if (session()->get('language')=='ro') Selectează metoda de plată @else Select Payment Method @endif</h4>
 		    </div>
 
             <!----------HTML FROM ------->
@@ -122,7 +122,7 @@ Stripe Payment Page
                             <div id="card-errors" role="alert"></div>
                         </div>
                         <br>
-                        <button class="btn btn-primary">Submit Payment</button>
+                        <button class="btn btn-primary">@if (session()->get('language')=='ro') Plătește @else Submit Payment @endif</button>
                         </form>
 
 

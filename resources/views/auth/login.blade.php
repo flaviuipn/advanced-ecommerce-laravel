@@ -17,27 +17,31 @@
 			<div class="row">
 				<!-- Sign-in -->			
 <div class="col-md-6 col-sm-6 sign-in">
-	<h4 class="">Sign in</h4>
-	<p class="">Hello, Welcome to your account.</p>
+	<h4 class="">@if (session()->get('language')=='ro') Conectează-te @else Sign in  @endif</h4>
+	<p class="">@if (session()->get('language')=='ro') Salut, bine ai revenit! @else Hello, Welcome to your account.@endif</p>
 
 
     <form method="POST" action="{{ isset($guard) ? url($guard.'/login') : route('login') }}">
             @csrf
 		<div class="form-group">
-		    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+		    <label class="info-title" for="exampleInputEmail1">E-mail<span>*</span></label>
 		    <input type="email" id="email" name="email" class="form-control unicase-form-control text-input">
 		</div>
 	  	<div class="form-group">
-		    <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
+		    <label class="info-title" for="exampleInputPassword1">@if (session()->get('language')=='ro') Parolă @else Password  @endif<span>*</span></label>
 		    <input type="password" id="password" name="password" class="form-control unicase-form-control text-input" >
 		</div>
 		<div class="radio outer-xs">
 		  	<label>
-		    	<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Remember me!
+		    	<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">@if (session()->get('language')=='ro') Rămân logat!
+				@else Remember me! @endif
 		  	</label>
-		  	<a href="{{ route('password.request') }}" class="forgot-password pull-right">Forgot your Password?</a>
+		  	<a href="{{ route('password.request') }}" class="forgot-password pull-right">@if (session()->get('language')=='ro') Am uitat parola?
+			@else Forgot your Password?  @endif</a>
 		</div>
-	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
+	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">@if (session()->get('language')=='ro') Loghează-te
+		  @else Login @endif
+		</button>
 	</form>		
     
     
@@ -46,13 +50,13 @@
 
 <!-- create a new account -->
 <div class="col-md-6 col-sm-6 create-new-account">
-	<h4 class="checkout-subtitle">Create a new account</h4>
-	<p class="text title-tag-line">Create your new account.</p>
+	<h4 class="checkout-subtitle">@if (session()->get('language')=='ro') Creează un cont nou @else  Create a new account @endif</h4>
+	<p class="text title-tag-line">@if (session()->get('language')=='ro') Creează contul: @else Create your new account: @endif</p>
 
 	<form method="POST" action="{{ route('register') }}">
             @csrf
         <div class="form-group">
-		    <label class="info-title" for="name">Name <span>*</span></label>
+		    <label class="info-title" for="name">@if (session()->get('language')=='ro') Nume @else Name @endif<span>*</span></label>
 		    <input type="text" id="name" name="name" class="form-control unicase-form-control text-input">
 		</div>
         @error('name')
@@ -63,7 +67,7 @@
 
         @enderror
 		<div class="form-group">
-	    	<label class="info-title" for="exampleInputEmail2">Email Address <span>*</span></label>
+	    	<label class="info-title" for="exampleInputEmail2">E-mail<span>*</span></label>
 	    	<input type="email" id="email" name="email" class="form-control unicase-form-control text-input">
 	  	</div>
           @error('email')
@@ -74,7 +78,7 @@
 
         @enderror
         <div class="form-group">
-		    <label class="info-title" for="exampleInputEmail1">Password <span>*</span></label>
+		    <label class="info-title" for="exampleInputEmail1">@if (session()->get('language')=='ro') Parola @else Password @endif<span>*</span></label>
 		    <input type="password" id="password" name="password" class="form-control unicase-form-control text-input">
 		</div>
         @error('password')
@@ -85,7 +89,7 @@
 
         @enderror
          <div class="form-group">
-		    <label class="info-title" for="exampleInputEmail1">Confirm Password <span>*</span></label>
+		    <label class="info-title" for="exampleInputEmail1">@if (session()->get('language')=='ro') Confirmă parola @else  Confirm Password @endif<span>*</span></label>
 		    <input type="password" id="password_confirmation" name="password_confirmation" class="form-control unicase-form-control text-input" >
 		</div>
         @error('password_confirmation')
@@ -95,7 +99,7 @@
             </span>
 
         @enderror
-	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Sign Up</button>
+	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">@if (session()->get('language')=='ro') Înregistrează-te @else Sign Up @endif</button>
 	</form>
 	
 	

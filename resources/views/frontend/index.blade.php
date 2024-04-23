@@ -44,20 +44,6 @@ YEKIX
                   
                 </div>
                 <!-- /.product-info -->
-                <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart" style="background-color:  #d9534f"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button" style="background-color: black;">Add to cart</button>
-                              </li>
-                              
-                            </ul>
-                            
-                          </div>
-                          <!-- /.action --> 
-                        </div>
-                        <!-- /.cart -->  
               </div>
             </div>
       @endforeach
@@ -219,21 +205,7 @@ YEKIX
 
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              
-                            </ul>
-                            
-                          </div>
-                          <!-- /.action --> 
-                        </div>
-                        <!-- /.cart --> 
+
                         
                       </div>
                       <!-- /.product --> 
@@ -280,33 +252,6 @@ YEKIX
         <!-- /.wide-banners --> 
         
         <!-- ============================================== WIDE PRODUCTS : END ============================================== --> 
-                <!-- ============================================== WIDE PRODUCTS ============================================== -->
-                <div class="wide-banners wow fadeInUp outer-bottom-xs">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="wide-banner cnt-strip">
-                <div class="image"> <img class="img-responsive" src="{{asset('frontend/assets/images/banners/nike-banner.png')}}" alt=""> </div>
-                <div class="strip strip-text">
-                  <div class="strip-inner">
-                    <h2 class="text-right" style="color: #d9534f;">MEN OUTLET<br>
-                      <span class="shopping-needs">@if (session()->get('language')=='ro') Salvează până la 40% @else  Save up to 40% off @endif</span></h2>
-                  </div>
-                </div>
-                <div class="new-label">
-                  <div class="text" style="color:black">HOT</div>
-                </div>
-                <!-- /.new-label --> 
-              </div>
-              <!-- /.wide-banner --> 
-            </div>
-            <!-- /.col --> 
-            
-          </div>
-          <!-- /.row --> 
-        </div>
-        <!-- /.wide-banners --> 
-        <!-- ============================================== WIDE PRODUCTS : END ============================================== --> 
-        <!-- ============================================== FEATURED PRODUCTS ============================================== -->
         <section class="section featured-product wow fadeInUp">
           <h3 class="section-title">@if (session()->get('language')=='ro') PRODUSE Recomandate @else Featured products @endif </h3>
           <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
@@ -353,6 +298,167 @@ YEKIX
           </div>
           <!-- /.home-owl-carousel --> 
         </section>
+                <!-- ============================================== WIDE PRODUCTS ============================================== -->
+                <div class="wide-banners wow fadeInUp outer-bottom-xs">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="wide-banner cnt-strip">
+                <div class="image"> <img class="img-responsive" src="{{asset('frontend/assets/images/banners/nike-banner.png')}}" alt=""> </div>
+                <div class="strip strip-text">
+                  <div class="strip-inner">
+                    <h2 class="text-right" style="color: #d9534f;">MEN OUTLET<br>
+                      <span class="shopping-needs">@if (session()->get('language')=='ro') Salvează până la 40% @else  Save up to 40% off @endif</span></h2>
+                  </div>
+                </div>
+                <div class="new-label">
+                  <div class="text" style="color:black">HOT</div>
+                </div>
+                <!-- /.new-label --> 
+              </div>
+              <!-- /.wide-banner --> 
+            </div>
+            <!-- /.col --> 
+            
+          </div>
+          <!-- /.row --> 
+        </div>
+        <!-- /.wide-banners --> 
+        <!-- ============================================== WIDE PRODUCTS : END ============================================== --> 
+        <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+        <section class="section featured-product wow fadeInUp">
+          <h3 class="section-title">@if (session()->get('language')=='ro') Haine @else Clothing @endif </h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+          @foreach($prd1 as $prd)
+          @if($prd->subcategory_id == 5)
+                  <div class="item item-carousel">
+                    
+                    <div class="products">
+                      
+                      <div class="product">
+                        
+                        <div class="product-image">
+
+                          <div class="image"> <a href="{{url('product/details/'.$prd->id.'/'.$prd->product_slug_en)}}"><img  src="{{ $prd->product_thumbnail}}" alt=""></a> </div>
+                          <!-- /.image -->
+                          
+                          <div class="tag new"><span>new</span></div>
+                        </div>
+                        <!-- /.product-image -->
+                        <div class="product-info text-left">
+                          <h3 class="name"><a href="{{url('product/details/'.$prd->id.'/'.$prd->product_slug_en)}}">@if (session()->get('language')=='ro') {{ $prd->product_name_ro }} @else {{ $prd->product_name_en }} @endif </a></h3>
+          
+                          <div class="description"></div>
+                          <div class="product-price"> <span class="price"> @if ($prd->discount_price==NULL) {{ $prd->selling_price }}EUR @else {{ $prd->discount_price }}EUR @endif</span>
+                           <span class="price-before-discount">@if($prd->discount_price!=NULL) {{ $prd->selling_price }}EUR @endif </span> </div>
+                          <!-- /.product-price --> 
+
+                        </div>
+                        <!-- /.product-info -->
+
+                        
+                      </div>
+                      <!-- /.product --> 
+                      
+                    </div>
+                    <!-- /.products --> 
+                  </div>
+                  <!-- /.item -->
+                  @endif
+             @endforeach
+          </div>
+          <!-- /.home-owl-carousel --> 
+        </section>
+
+        <section class="section featured-product wow fadeInUp">
+          <h3 class="section-title">@if (session()->get('language')=='ro') Papuci @else Shoes @endif </h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+          @foreach($prd2 as $prd)
+          @if($prd->subcategory_id == 6)
+                  <div class="item item-carousel">
+                    
+                    <div class="products">
+                      
+                      <div class="product">
+                        
+                        <div class="product-image">
+
+                          <div class="image"> <a href="{{url('product/details/'.$prd->id.'/'.$prd->product_slug_en)}}"><img  src="{{ $prd->product_thumbnail}}" alt=""></a> </div>
+                          <!-- /.image -->
+                          
+                          <div class="tag new"><span>new</span></div>
+                        </div>
+                        <!-- /.product-image -->
+                        <div class="product-info text-left">
+                          <h3 class="name"><a href="{{url('product/details/'.$prd->id.'/'.$prd->product_slug_en)}}">@if (session()->get('language')=='ro') {{ $prd->product_name_ro }} @else {{ $prd->product_name_en }} @endif </a></h3>
+          
+                          <div class="description"></div>
+                          <div class="product-price"> <span class="price"> @if ($prd->discount_price==NULL) {{ $prd->selling_price }}EUR @else {{ $prd->discount_price }}EUR @endif</span>
+                           <span class="price-before-discount">@if($prd->discount_price!=NULL) {{ $prd->selling_price }}EUR @endif </span> </div>
+                          <!-- /.product-price --> 
+
+                        </div>
+                        <!-- /.product-info -->
+
+                        
+                      </div>
+                      <!-- /.product --> 
+                      
+                    </div>
+                    <!-- /.products --> 
+                  </div>
+                  <!-- /.item -->
+                  @endif
+             @endforeach
+          </div>
+          <!-- /.home-owl-carousel --> 
+        </section>
+        <section class="section featured-product wow fadeInUp">
+          <h3 class="section-title">@if (session()->get('language')=='ro') Ceasuri @else Watches @endif </h3>
+          <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+          @foreach($prd3 as $prd)
+          @if($prd->subcategory_id == 7)
+                  <div class="item item-carousel">
+                    
+                    <div class="products">
+                      
+                      <div class="product">
+                        
+                        <div class="product-image">
+
+                          <div class="image"> <a href="{{url('product/details/'.$prd->id.'/'.$prd->product_slug_en)}}"><img  src="{{ $prd->product_thumbnail}}" alt=""></a> </div>
+                          <!-- /.image -->
+                          
+                          <div class="tag new"><span>new</span></div>
+                        </div>
+                        <!-- /.product-image -->
+                        <div class="product-info text-left">
+                          <h3 class="name"><a href="{{url('product/details/'.$prd->id.'/'.$prd->product_slug_en)}}">@if (session()->get('language')=='ro') {{ $prd->product_name_ro }} @else {{ $prd->product_name_en }} @endif </a></h3>
+          
+                          <div class="description"></div>
+                          <div class="product-price"> <span class="price"> @if ($prd->discount_price==NULL) {{ $prd->selling_price }}EUR @else {{ $prd->discount_price }}EUR @endif</span>
+                           <span class="price-before-discount">@if($prd->discount_price!=NULL) {{ $prd->selling_price }}EUR @endif </span> </div>
+                          <!-- /.product-price --> 
+
+                        </div>
+                        <!-- /.product-info -->
+
+                        
+                      </div>
+                      <!-- /.product --> 
+                      
+                    </div>
+                    <!-- /.products --> 
+                  </div>
+                  <!-- /.item -->
+                  @endif
+             @endforeach
+          </div>
+          <!-- /.home-owl-carousel --> 
+        </section>
+
+
+       
+      
         <!-- /.section --> 
         <!-- ============================================== FEATURED PRODUCTS : END ============================================== --> 
 

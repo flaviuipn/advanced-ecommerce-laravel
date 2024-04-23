@@ -37,24 +37,24 @@ Checkout
 
 				<!-- guest-login -->			
 				<div class="col-md-6 col-sm-6 already-registered-login">
-					<h4 class="checkout-subtitle"><B>Livrare</b>: </h4>
+					<h4 class="checkout-subtitle"><B> @if (session()->get('language')=='ro') Livrare @else @ Shipping @endif</b>: </h4>
 
 					<form class="register-form" action="{{ route('checkout.store') }}" method="POST">
                         @csrf
 						<div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">Țară <span>*</span></label>
+					    <label class="info-title" for="exampleInputEmail1">@if (session()->get('language')=='ro') Țară @else Country @endif<span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input"  name="shipping_country" placeholder="">
 					  </div>
                       <div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">Județ <span>*</span></label>
+					    <label class="info-title" for="exampleInputEmail1">@if (session()->get('language')=='ro') Județ @else County @endif<span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input"  name="shipping_judet" placeholder="">
 					  </div>
                       <div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">Oraș <span>*</span></label>
+					    <label class="info-title" for="exampleInputEmail1">@if (session()->get('language')=='ro') Oraș @else City @endif<span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input"  name="shipping_city" placeholder="">
 					  </div>
                       <div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">Adresă <span>*</span></label>
+					    <label class="info-title" for="exampleInputEmail1">@if (session()->get('language')=='ro')Adresă @else Address @endif<span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input"  name="shipping_address" placeholder="">
 					  </div>
 
@@ -68,23 +68,23 @@ Checkout
                 <h4 class="checkout-subtitle"><B>Date personale</b>: </h4>
 
 						<div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">Nume și Prenume <span>*</span></label>
+					    <label class="info-title" for="exampleInputEmail1">@if (session()->get('language')=='ro') Nume și Prenume @else First & Last Name @endif<span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input"  name="shipping_name" placeholder="">
 					  </div>
                       <div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">E-mail <span>*</span></label>
+					    <label class="info-title" for="exampleInputEmail1">@if (session()->get('language')=='ro') E-mail @else E-mail @endif<span>*</span></label>
 					    <input type="email" class="form-control unicase-form-control text-input"  name="shipping_email" placeholder="">
 					  </div>
                       <div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">Telefon <span>*</span></label>
+					    <label class="info-title" for="exampleInputEmail1">@if (session()->get('language')=='ro') Telefon @else Phone @endif<span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input" name="shipping_phone" placeholder="">
 					  </div>
                       <div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">Cod Poștal <span>*</span></label>
+					    <label class="info-title" for="exampleInputEmail1">@if (session()->get('language')=='ro') Cod Poștal @else Postal Code @endif<span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input"  name="post_code" placeholder="">
 					  </div>
                       <div class="form-group">
-					    <label class="info-title" for="exampleInputEmail1">Observații <span>*</span></label>
+					    <label class="info-title" for="exampleInputEmail1">@if (session()->get('language')=='ro') Observații @else Notes @endif<span>*</span></label>
 					    <textarea class="form-control"  name="notes" placeholder=""></textarea>
 					  </div>
 					
@@ -109,7 +109,7 @@ Checkout
 	<div class="panel-group">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-		    	<h4 class="unicase-checkout-title">Your Checkout Progress</h4>
+		    	<h4 class="unicase-checkout-title">@if (session()->get('language')=='ro') Progresul tău @else Your Checkout Progress @endif</h4>
 		    </div>
 		    <div class="">
 				<ul class="nav nav-checkout-progress list-unstyled">
@@ -147,7 +147,7 @@ Checkout
 	<div class="panel-group">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-		    	<h4 class="unicase-checkout-title">Select payment method:</h4>
+		    	<h4 class="unicase-checkout-title"> @if (session()->get('language')=='ro') Selectează metoda de plată@else Select payment method: @endif</h4>
 		    </div>
 
 		    <div class="row">
@@ -159,7 +159,7 @@ Checkout
 
 			</div>
             <Hr>
-            <button type="submit" class="btn-upper btn btn-primary checkout-page-button" style="background-color:black; color:white; border-radius: 5px; margin-top: 10px;"> Pay </button>
+            <button type="submit" class="btn-upper btn btn-primary checkout-page-button" style="background-color:black; color:white; border-radius: 5px; margin-top: 10px;"> @if (session()->get('language')=='ro') Plătește @else Pay @endif</button>
 
 		</div>
 	</div>
